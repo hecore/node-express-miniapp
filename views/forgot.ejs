@@ -1,0 +1,50 @@
+<% include header.ejs %>
+
+<div class="container">
+    <h1><%= title %></h1>
+    <hr>
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3 class="thin text-center"><%=texts.RESET_PASSWORD%></h3>
+				<p class="text-center text-muted"><%=texts.RESET_PASSWORD_TEXT%></p>
+				<hr>
+				
+				 <% if(typeof msgs !="undefined" && msgs.length){ 
+			    	for(var i=0;i< msgs.length; i++){ %>
+					<h4 class="alert <%=msgs[i].css%>"><%=msgs[i].msg%></h4>
+					<%}%>
+			    <%}%>
+				
+				<% if(typeof noform=="undefined"){ %>
+					<form action="/recover-account" method="post">
+						<div class="top-margin">
+							<label>Email <span class="text-danger">*</span></label>
+							<input type="text" name="email" id="email" class="form-control" required>
+						</div>
+	
+						<hr>
+						<div class="row">
+							<div class="col-lg-8">
+								<b>Changed your mind? Back to <a href="/login"><%=texts.SIGN_IN%></a> form</b>
+							</div>
+							<div class="col-lg-8">
+								<b>Don't have an account? <a href="/register"><%=texts.REGISTER%></a> one now</b>
+							</div>
+	
+							<div class="col-lg-4 text-right">
+								<button class="btn btn-action btn-primary" type="submit"><%=texts.SEND_EMAIL%></button>
+							</div>
+						</div>
+					</form>
+				
+				<%}%>
+				
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<% include footer.ejs %>

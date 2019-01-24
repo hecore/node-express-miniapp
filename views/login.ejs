@@ -1,0 +1,66 @@
+<% include header.ejs %>
+
+<div class="container">
+    <h1><%= title %></h1>
+    <hr>
+
+    <% if(typeof msgs !="undefined" && msgs.length){ 
+    	for(var i=0;i< msgs.length; i++){ %>
+		<h4 class="alert <%=msgs[i].css%>"><%=msgs[i].msg%></h4>
+		<%}%>
+    <%}%>
+
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3 class="thin text-center"><%=texts.SIGN_IN_TO_YOUR_ACCOUNT%></h3>
+				<% if (registerEnabled) { %><p class="text-center text-muted"><%=texts.IF_YOU_DONT_HAVE_ACCOUNT%>, <a href="/register"><%=texts.CREATE_AN_ACCOUNT%></a> <%=texts.NOW%>. </p><% } %>
+				<% if(facebookLoginEnabled){ %>
+					<div class="center">
+					<a class="btn-lg btn-social btn-facebook" href="/auth/facebook">
+					    <span class="fa fa-facebook"></span> Sign in with Facebook
+					 </a>
+					</div>
+					<hr class="line">
+					<div class="circle">OR</div>
+				<% } %>
+				
+				<form action="/login" method="post">
+					<div class="top-margin">
+						<label><%=texts.USERNAME_EMAIL%> <span class="text-danger">*</span></label>
+						<input type="text" name="login_username" id="login_username" class="form-control" value="<%=loginusername.pop();%>" required autofocus>
+					</div>
+					<div class="top-margin">
+						<label><%=texts.PASSWORD%> <span class="text-danger">*</span></label>
+						<input type="password" name="login_password" id="login_passwword" class="form-control" required>
+					</div>
+
+					<hr>
+					<% if(loginError.length){ %>
+						<div id="registerError" class="alert alert-danger">
+						<%=loginError.pop();%>
+						</div>
+					<% } %>
+
+					<div class="row">
+						<div class="col-lg-8">
+							<b><a href="/recover-account"><%=texts.FORGOT_PASSWORD%></a></b>
+						</div>
+
+						<div class="col-lg-4 text-right">
+							<button class="btn btn-action btn-primary" type="submit"><%=texts.LOG_IN%></button>
+						</div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+
+	</div>
+
+
+</div>
+
+<% include footer.ejs %>
+
+ 

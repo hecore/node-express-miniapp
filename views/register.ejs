@@ -1,0 +1,72 @@
+<% include header.ejs %>
+
+<div class="container">
+    <h1><%= title %></h1>
+    <hr>
+	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div class="panel panel-default">
+			<div id="headsection" class="panel-body">
+				<h3 class="thin text-center"><%=texts.REGISTER_A_NEW_ACCOUNT%></h3>
+				
+				<% if (localLoginEnabled) { %>
+				<p class="text-center text-muted">
+				<%=texts.ALREADY_HAVE_AN_ACCOUNT%> <a href="/login"><%=texts.LOGIN_HERE%>.</a></p>
+				<% } %>
+				<% if(facebookLoginEnabled){ %>
+					<div class="center">
+					<a class="btn-lg btn-social btn-facebook" href="/auth/facebook">
+					    <span class="fa fa-facebook"></span> Sign up with Facebook
+					 </a>
+					</div>
+					<hr class="line">
+					<div class="circle">OR</div>
+				<% } %>
+
+
+				<form id="register" action="/register" method="post">
+					<div class="top-margin">
+						<label><%=texts.FIRST_NAME%> <span class="text-danger">*</span></label>
+						<input type="text" name="userAlias" id="userAlias" class="form-control" required>
+					</div>
+
+					<div class="top-margin">
+						<label><%=texts.EMAIL_ADDRESS%> <span class="text-danger">*</span></label>
+						<input type="email" name="userEmail" id="userEmail" class="form-control" required>
+					</div>
+
+					<div class="row top-margin">
+						<div class="col-sm-6">
+							<label><%=texts.PASSWORD%> <span class="text-danger">*</span></label>
+							<input type="password" name="userPassword1" id="userPassword1" class="form-control" required>
+						</div>
+						<div class="col-sm-6">
+							<label><%=texts.CONFIRM_PASSWORD%> <span class="text-danger">*</span></label>
+							<input type="password" name="userPassword2" id="userPassword2" class="form-control" required>
+						</div>
+					</div>
+					<hr>
+					<div id="registerError" style="display:none;" class="alert alert-danger">
+					</div>
+					<div>
+						<div class="col-lg-8">
+							<label class="checkbox">
+								<input type="checkbox" name="legals" required> 
+								<%=texts.IVE_READ_THE%> <a href="/legal"><%=texts.TERMS_AND_CONDITIONS%></a>
+							</label>                        
+						</div>
+						<div class="col-lg-4 text-right">
+							<button class="btn btn-primary" type="submit"><%=texts.REGISTER%></button>
+						</div>
+					</div>
+				</form>
+				<div id="registerOK" style="display:none;" class="alert alert-success">
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<% include footer.ejs %>
+
+ 

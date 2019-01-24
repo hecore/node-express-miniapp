@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">MVP</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+         <li><a href="/about"><%=texts.ABOUT%></a></li>
+         <li><a href="/contact"><%=texts.CONTACT%></a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+        <form class="navbar-form navbar-left" role="search">
+          <% if(!loggedUser) { %>
+            <% if (localLoginEnabled) { %>
+	          <a href="/login" class="btn btn-sm btn-default"><%=texts.SIGN_IN%></a> 
+            <% } %>
+	          <% if (registerEnabled) { %>
+	          <a href="/register" class="btn btn-sm btn-primary"><%=texts.SIGN_UP%></a>  
+	          <% } %> 
+	         
+	         <select class="clang input-sm btn-default" id="clang" onchange="location.href='/?clang='+$('#clang').val();">
+	            <option value="en" <%=(lang=='en'?'selected="selected"':'')%> >English</option>
+	            <option value="es" <%=(lang=='es'?'selected="selected"':'')%> >Español</option>
+	          </select>
+	           
+          <% }else{ %>
+			   <button class="btn-sm btn-default dropdown-toggle" type="button" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			    <%=loggedUser.displayName%>
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" aria-labelledby="user-options">
+			    <li><a href="/my-account/profile"><%=texts.MYACCOUNT%></a></li>
+			    <li><a href="/logout"><%=texts.LOGOUT%></a></li>
+			  </ul>
+          <% } %>
+
+        </form>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav>

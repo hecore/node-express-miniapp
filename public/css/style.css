@@ -1,0 +1,111 @@
+html, body {
+    height:100%;
+}
+
+h1 {
+	font-family: "Open sans", Helvetica, Arial;
+	font-weight: 300;
+	font-size: 36px;
+}
+
+.page-body{
+	padding-top: 64px;
+	position: relative;
+    min-height:100%;
+}
+
+.footer1 {
+    background: #232323;
+    padding: 30px 0 0 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.footer2 {
+    background: #191919;
+    padding: 15px 0;
+    color: #777;
+    font-size: 12px;
+}
+
+.footer1 .widget-title {
+    font-size: 17px;
+    font-weight: bold;
+    color: #ccc;
+    margin: 0 0 20px;
+}
+
+.footer2 a:hover {
+    color: #fff;
+}
+.footer2 a {
+    color: #aaa;
+}
+
+.footer1 a {
+    color: #ccc;
+}
+
+hr.line {
+    position: relative;
+    top: 15px;
+    width: 100%;
+    background-color: #D4D4D4;
+    border-collapse: collapse;
+    margin-bottom: 0px;
+}
+
+div.center{ 
+	text-align:center;
+}
+
+div.circle {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    background-color: #FFF;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #D4D4D4;
+    text-align: center;
+    padding-right: 2px;
+    font-size: 12px;
+    line-height: 30px;
+    font-style: italic;
+    color: #D4D4D4;
+}
+
+select.clang {
+  -moz-appearance: none;
+   -webkit-appearance: none;
+   appearance: none;
+}
+
+.list-group-item {
+    padding: 10px 15px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    text-transform: none;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+    text-transform: none;
+}
+
+

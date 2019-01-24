@@ -1,0 +1,75 @@
+
+</div> 
+
+	<footer id="footer" class="top-space">
+
+		<div class="footer1">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-3 widget">
+						<h3 class="widget-title"><%=texts.CONTACT%></h3>
+						<div class="widget-body">
+							<p>+54 11 55555555<br>
+								<a href="mailto:#">hello@example.com</a><br>
+								<br>
+								234 Av. Siempre Viva, Springfield
+							</p>	
+						</div>
+					</div>
+
+					<div class="col-md-3 widget">
+						<h3 class="widget-title"><%=texts.FOLLOW_US%></h3>
+						<div class="widget-body">
+							<p class="follow-me-icons">
+								<a href=""><i class="fa fa-facebook fa-2x"></i>&nbsp;</a>
+								<a href=""><i class="fa fa-twitter fa-2x"></i>&nbsp;</a>
+							</p>	
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+						<% include suscribe-form.ejs %>
+						</div>
+					</div>
+
+				</div> 
+			</div>
+		</div>
+
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="/">Home</a> | 
+								<a href="/about"><%=texts.ABOUT%></a> |
+								<a href="/contact"><%=texts.CONTACT%></a>
+								<% if(!loggedUser) { %> 
+									<% if (localLoginEnabled) { %>| <a href="/login"><%=texts.SIGN_IN%></a> <% } %>
+									<% if (registerEnabled) { %>| <b><a href="/register"><%=texts.SIGN_UP%></a></b><% } %>
+								<% } %>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2016 MVP by <a href="https://github.com/koalazak" target="_blank">koalazak</a> 
+							</p>
+						</div>
+					</div>
+
+				</div> 
+			</div>
+		</div>
+
+	</footer>	
+		
+
+</body>
+</html>
